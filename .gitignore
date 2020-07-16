@@ -1,0 +1,7 @@
+# Gradle build
+.gradle
+build
+
+# IntelliJ build/config
+.idea
+out
