@@ -50,6 +50,7 @@ task cucumber {
             def featuresDir = 'src/test/resources'
             args = [
                     '--plugin', 'pretty',
+                    '--plugin', 'util.DriverPlugin:chrome',
                     '--glue', stepsPackage,
                     featuresDir
             ]

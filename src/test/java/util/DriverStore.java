@@ -8,7 +8,7 @@ public class DriverStore {
     private static WebDriver driver;
 
     public static WebDriver getDriver() {
-        if(driver == null) init("chrome");
+        if(driver == null) throw new RuntimeException("Driver not initialised. Run init() before use.");
         return driver;
     }
 
