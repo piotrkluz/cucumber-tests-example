@@ -1,18 +1,19 @@
 package steps;
 
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import steps.enums.WeekDay;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class Steps {
     private String today;
     private String actualAnswer;
 
-    @Given("today is Sunday")
-    public void today_is_Sunday() {
-        today = "Sunday";
+    @Given("today is {weekDay}")
+    public void today_is_Sunday(WeekDay weekDay) {
+        today = weekDay.toString();
     }
 
     @When("I ask whether it's Friday yet")
@@ -28,6 +29,6 @@ public class Steps {
 
 class IsItFriday {
     static String isItFriday(String today) {
-        return "Nope";
+        return today.toLowerCase().equals("friday") ? "Yes" : "No";
     }
 }
