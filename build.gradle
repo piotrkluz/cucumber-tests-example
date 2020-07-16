@@ -22,7 +22,7 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'io.cucumber:cucumber-java8:6.2.2'
+    testImplementation 'io.cucumber:cucumber-java:6.2.2'
     testImplementation 'io.cucumber:cucumber-junit:6.2.2'
     testImplementation 'io.cucumber:cucumber-picocontainer:6.2.2'
 }
@@ -44,7 +44,14 @@ task cucumber {
         javaexec {
             main = "io.cucumber.core.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = ['--plugin', 'pretty', '--glue', 'hellocucumber', 'src/test/resources']
+
+            def stepsPackage = 'steps'
+            def featuresDir = 'src/test/resources'
+            args = [
+                    '--plugin', 'pretty',
+                    '--glue', stepsPackage,
+                    featuresDir
+            ]
         }
     }
 }
