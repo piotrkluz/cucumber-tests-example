@@ -7,7 +7,7 @@ import steps.enums.WeekDay;
 
 import static org.junit.Assert.assertEquals;
 
-public class Steps {
+public class FridaySteps {
     private String today;
     private String actualAnswer;
 
@@ -18,17 +18,17 @@ public class Steps {
 
     @When("I ask whether it's Friday yet")
     public void i_ask_whether_it_s_Friday_yet() {
-        actualAnswer = IsItFriday.isItFriday(today);
+        actualAnswer = new IsItFriday().isItFriday(today);
     }
 
     @Then("I should be told {string}")
     public void i_should_be_told(String expectedAnswer) {
         assertEquals(expectedAnswer, actualAnswer);
     }
-}
 
-class IsItFriday {
-    static String isItFriday(String today) {
-        return today.toLowerCase().equals("friday") ? "Yes" : "No";
+    class IsItFriday {
+        String isItFriday(String today) {
+            return today.toLowerCase().equals("friday") ? "Yes" : "No";
+        }
     }
 }

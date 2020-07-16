@@ -15,4 +15,3 @@ Feature: Is it Friday yet?
       | day            | answer |
       | Friday         | Yes    |
       | Sunday         | No     |
-      | anything else! | No     |
